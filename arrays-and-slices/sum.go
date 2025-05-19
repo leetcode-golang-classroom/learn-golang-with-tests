@@ -1,5 +1,9 @@
 package arrays_and_slices
 
 func Sum(numbers [5]int) int {
-	return 15
+	sum := 0
+	for idx := 0; idx < len(numbers); idx++ {
+		sum += numbers[idx]
+	}
+	return sum
 }
