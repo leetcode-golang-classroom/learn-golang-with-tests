@@ -7,3 +7,6 @@ coverage:
 
 test:
 	@go test -v ./...
+
+coverage-test:
+	@go test -cover github.com/leetcode-golang-classroom/learn-golang-with-tests/arrays-and-slices -run ^TestSumAllTails$
