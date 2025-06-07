@@ -24,6 +24,10 @@ func (w *Wallet) Balance() Bitcoin {
 }
 
 // Withdraw - deposit amount from wallet balance
-func (w *Wallet) Withdraw(amount Bitcoin) {
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if w.balance < amount {
+		return fmt.Errorf("oh no")
+	}
 	w.balance -= amount
+	return nil
 }
