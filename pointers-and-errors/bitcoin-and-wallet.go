@@ -13,10 +13,17 @@ type Wallet struct {
 	balance Bitcoin
 }
 
+// Deposit - deposit amount into wallet balance
 func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
 }
 
+// Balance - show bitcoin balance
 func (w *Wallet) Balance() Bitcoin {
 	return w.balance
+}
+
+// Withdraw -
+func (w *Wallet) Withdraw(amount Bitcoin) {
+
 }
