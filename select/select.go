@@ -22,12 +22,6 @@ func Racer(a, b string) (string, error) {
 	return ConfigurableRacer(a, b, tenSecondTimeout)
 }
 
-func measureResponseTime(url string) time.Duration {
-	start := time.Now()
-	http.Get(url)
-	return time.Since(start)
-}
-
 func ping(url string) chan struct{} {
 	ch := make(chan struct{})
 	go func() {
