@@ -84,3 +84,9 @@ copy(stockAmountByRangeClone, stockAmountByRange)
 # 參考文件
 
 [slice-intro](https://go.dev/blog/slices-intro)
+
+# install debug tool
+
+```shell
+go install github.com/go-delve/delve/cmd/dlv@latest
+```
