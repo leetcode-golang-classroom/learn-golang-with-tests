@@ -18,9 +18,9 @@ var allRomanNumerals = []RomanNumerals{
 func ConvertToRoman(arabic int) string {
 	var result strings.Builder
 	for _, romanNumeral := range allRomanNumerals {
-		if arabic >= romanNumeral.Value {
-			arabic -= romanNumeral.Value
+		for arabic >= romanNumeral.Value {
 			result.WriteString(romanNumeral.Symbol)
+			arabic -= romanNumeral.Value
 		}
 	}
 	return result.String()
