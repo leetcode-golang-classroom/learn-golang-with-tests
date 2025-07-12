@@ -2,19 +2,25 @@ package roman_numerals
 
 import "strings"
 
+type RomanNumerals struct {
+	Value  int
+	Symbol string
+}
+
+var allRomanNumerals = []RomanNumerals{
+	{10, "X"},
+	{9, "IX"},
+	{5, "V"},
+	{4, "IV"},
+	{1, "I"},
+}
+
 func ConvertToRoman(arabic int) string {
 	var result strings.Builder
-	for arabic > 0 {
-		switch {
-		case arabic > 4:
-			arabic -= 5
-			result.WriteString("V")
-		case arabic > 3:
-			arabic -= 4
-			result.WriteString("IV")
-		default:
-			arabic--
-			result.WriteString("I")
+	for _, romanNumeral := range allRomanNumerals {
+		if arabic >= romanNumeral.Value {
+			arabic -= romanNumeral.Value
+			result.WriteString(romanNumeral.Symbol)
 		}
 	}
 	return result.String()
