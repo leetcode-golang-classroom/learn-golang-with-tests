@@ -48,3 +48,5 @@ func angleToPoint(angle float64) Point {
 func minuteHandPoint(t time.Time) Point {
 	return angleToPoint(minutesInRadians(t))
 }
+
+const minuteHandLength = 80
