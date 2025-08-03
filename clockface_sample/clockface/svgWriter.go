@@ -6,12 +6,21 @@ import (
 	"time"
 )
 
+const (
+	secondHandLength = 90
+	minuteHandLength = 80
+	hourHandLength   = 50
+	clockCentreX     = 150
+	clockCentreY     = 150
+)
+
 // SVGWriter writes an SVG representation of an analogue clock, showing the time t, to the writer w.
 func SVGWriter(w io.Writer, t time.Time) {
 	io.WriteString(w, svgStart)
 	io.WriteString(w, bezel)
 	secondHand(w, t)
 	minuteHand(w, t)
+	hourHand(w, t)
 	io.WriteString(w, svgEnd)
 }
 
@@ -43,3 +52,8 @@ const svgStart = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 const bezel = `<circle cx="150" cy="150" r="100" style="fill:#fff;stroke:#000;stroke-width:5px;"/>`
 
 const svgEnd = `</svg>`
+
+func hourHand(w io.Writer, t time.Time) {
+	p := makeHand(hourHandPoint(t), hourHandLength)
+	fmt.Fprintf(w, `<line x1="150" y1="150" x2="%.3f" y2="%.3f" style="fill:none;stroke:#000;stroke-width:3px;"/>`, p.X, p.Y)
+}
