@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/leetcode-golang-classroom/learn-golang-with-tests/clockface"
+	clockface "github.com/leetcode-golang-classroom/learn-golang-with-tests/clockface_sample/clockface"
 )
 
 func TestSecondHandAtMidnight(t *testing.T) {
